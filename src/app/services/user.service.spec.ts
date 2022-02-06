@@ -13,4 +13,14 @@ describe('UserService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('#setCurrentUsername should set value in session storage', () => {
+    service.setCurrentUsername('Jeffrey');
+    expect(sessionStorage.getItem('currentUsername')).toBe('Jeffrey');
+  });
+
+  it('#getCurrentUsername should get value from session storage', () => {
+    sessionStorage.setItem('currentUsername', 'Elon');
+    expect(service.getCurrentUsername()).toBe('Elon');
+  });
 });
