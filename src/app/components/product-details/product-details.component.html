@@ -1,0 +1,35 @@
+<mat-spinner *ngIf="!isLoaded"></mat-spinner>
+<div class="container" *ngIf="product && isLoaded">
+  <div class="flex-item">
+    <h1 class="overflow-wrap">{{ product.name }}</h1>
+    <h3 class="overflow-wrap">{{ product.description }}</h3>
+    <p>Created by: {{ product.username }}</p>
+    <p>Status: {{ product.status }}</p>
+    <p *ngIf="product.status != 'New' && product.startedTimestamp">
+      Started: {{ product.startedTimestamp * 1000 | date: "HH:mm:ss" }}
+    </p>
+    <p *ngIf="product.status == 'Closed' && product.endingTimestamp">
+      Ended: {{ product.endingTimestamp * 1000 | date: "HH:mm:ss" }}
+    </p>
+  </div>
+  <div class="flex-item">
+    <div
+      *ngIf="!product.isStarted && isOwnedByCurrentUser"
+      class="start-auction"
+    >
+      <button mat-raised-button color="accent" (click)="startAuction(product)">
+        Start auction
+      </button>
+    </div>
+    <div
+      *ngIf="!isOwnedByCurrentUser && product.status == 'Active'"
+      class="place-bid"
+    >
+      <app-place-bid-form [product]="product"></app-place-bid-form>
+    </div>
+    <div *ngIf="product.timeLeft" class="timer">
+      <p>{{ product.timeLeft }}</p>
+    </div>
+    <app-bids-table [bids]="product.bids"></app-bids-table>
+  </div>
+</div>

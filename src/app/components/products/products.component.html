@@ -1,0 +1,31 @@
+<mat-spinner *ngIf="!isLoaded"></mat-spinner>
+<div *ngIf="isLoaded" class="grid-container">
+  <h1>{{ pageTitle }}</h1>
+  <p *ngIf="products.length == 0">There are no auctions.</p>
+  <mat-grid-list [cols]="columns" rowHeight="4:3">
+    <mat-grid-tile *ngFor="let product of products">
+      <mat-card
+        class="dashboard-card"
+        [routerLink]="['/products', product._id]"
+      >
+        <mat-card-title class="overflow-wrap">
+          {{ product.name }}
+        </mat-card-title>
+        <mat-card-subtitle class="overflow-wrap">
+          {{ product.description }}
+        </mat-card-subtitle>
+        <mat-card-content>
+          <div class="auction-info">
+            <p class="highest-bid">&euro; {{ product.highestBid }}</p>
+            <p *ngIf="product.status != 'Active'" class="status">
+              {{ product.status }}
+            </p>
+            <p *ngIf="product.timeLeft" class="status">
+              {{ product.timeLeft }}
+            </p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

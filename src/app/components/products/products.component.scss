@@ -1,0 +1,41 @@
+.grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  cursor: pointer;
+  &:hover {
+    background-color: #fafafa;
+  }
+}
+
+.highest-bid {
+  color: #673ab7;
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.status {
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.overflow-wrap {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+mat-spinner {
+  margin: 100px auto;
+}

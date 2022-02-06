@@ -1,0 +1,26 @@
+<form [formGroup]="placeBidForm" (ngSubmit)="submit()">
+  <mat-form-field appearance="outline">
+    <input
+      matInput
+      id="amount"
+      type="number"
+      placeholder="Amount (&euro;)"
+      formControlName="amount"
+    />
+    <mat-error *ngIf="amountFormControl.hasError('pattern')">
+      Incorrect number format.
+    </mat-error>
+    <mat-error *ngIf="amountFormControl.hasError('min')">
+      Amount must be greater than {{ highestBid }}.
+    </mat-error>
+    <mat-error *ngIf="amountFormControl.hasError('max')">
+      Let's be real, you're not THAT rich.
+    </mat-error>
+  </mat-form-field>
+
+  <div class="button-wrapper">
+    <button mat-flat-button color="primary" [disabled]="!placeBidForm.valid">
+      Place bid
+    </button>
+  </div>
+</form>

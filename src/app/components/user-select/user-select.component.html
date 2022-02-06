@@ -1,0 +1,11 @@
+<mat-form-field appearance="standard" style="width: 150px">
+  <mat-label>Current user</mat-label>
+  <mat-select
+    [(value)]="selectedUsername"
+    (selectionChange)="changeUser($event.value)"
+  >
+    <mat-option *ngFor="let user of users" [value]="user.username">
+      {{ user.username }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

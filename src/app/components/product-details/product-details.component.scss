@@ -1,0 +1,44 @@
+.container {
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  width: 90%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 720px;
+}
+
+.flex-item {
+  width: 49%;
+  min-width: 200px;
+  @media (max-width: 640px) {
+    width: 100%;
+  }
+}
+
+.start-auction {
+  text-align: center;
+  padding: 10px;
+}
+
+.place-bid {
+  text-align: center;
+  padding: 10px;
+}
+.timer {
+  font-size: 40px;
+  line-height: 40px;
+  letter-spacing: 0.3px;
+  text-align: center;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.overflow-wrap {
+  overflow-wrap: anywhere;
+}
+
+mat-spinner {
+  margin: 100px auto;
+}

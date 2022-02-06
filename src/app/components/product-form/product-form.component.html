@@ -1,0 +1,32 @@
+<div mat-dialog-content class="form-container">
+  <form [formGroup]="productForm" (ngSubmit)="submit()">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Name"
+        formControlName="name"
+        maxlength="50"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea
+        matInput
+        maxlength="200"
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="5"
+        formControlName="description"
+        required
+      ></textarea>
+    </mat-form-field>
+
+    <div class="button-wrapper">
+      <button mat-flat-button color="primary" [disabled]="!productForm.valid">
+        Create
+      </button>
+    </div>
+  </form>
+</div>
